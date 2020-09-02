@@ -1,0 +1,30 @@
+{
+  "name": "react-next-hub-search",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Sergio Gomes",
+    "email": "sergiopgomes92@gmail.com",
+    "url": "https://www.behance.net/sergio-gomes"
+  },
+  "bugs": "https://github.com/sergiogomes/react-next-hub-search/issues",
+  "homepage": "https://",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "next",
+    "github",
+    "bootstrap"
+  ],
+  "description": "An app that re-implements a portion of GitHub's Search feature, the user search, using their public API",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.5.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  }
+}
