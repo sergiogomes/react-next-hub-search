@@ -23,3 +23,7 @@ The app should utilize GitHub's public API
 npx create-next-app react-next-hub-search
 npm run dev
 ```
+
+## Bootstrap
+
+BootstrapCDN for styling at <https://getbootstrap.com/docs/4.5/getting-started/introduction/>
