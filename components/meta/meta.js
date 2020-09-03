@@ -23,6 +23,10 @@ const Meta = () => {
       <meta name="abstract" content="web, site, website" />
       <meta name="author" content="SergioPow" />
 
+      <meta
+        name="copyright"
+        content="https://react-next-hub-search.vercel.app/"
+      />
       <meta name="Works" content="WebSite" />
       <meta name="distribution" content="Global" />
       <meta name="rating" content="General" />
@@ -37,6 +41,37 @@ const Meta = () => {
       <meta name="MSN-media-crawl" content="index, follow" />
       <meta name="Msnbot" content="index, follow" />
       <meta name="robots" content="all" />
+      <meta name="SEO" content="https://react-next-hub-search.vercel.app/" />
+
+      {/* Twitter Cards */}
+      <meta name="twitter:card" content="summary" />
+      <meta
+        name="twitter:url"
+        content="https://react-next-hub-search.vercel.app/"
+      />
+      <meta name="twitter:title" content="NextHub" />
+      <meta
+        name="twitter:description"
+        content="An app that re-implements a portion of GitHub's Search feature, the user search, using their public API"
+      />
+      <meta name="twitter:image" content="https://" />
+
+      {/* Facebook Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="NextHub" />
+      <meta
+        property="og:description"
+        content="An app that re-implements a portion of GitHub's Search feature, the user search, using their public API"
+      />
+      <meta
+        property="og:url"
+        content="https://react-next-hub-search.vercel.app/"
+      />
+      <meta
+        property="og:site_name"
+        content="An app that re-implements a portion of GitHub's Search feature, the user search, using their public API"
+      />
+      <meta property="og:image" content="https://" />
 
       {/* favicon */}
       <link rel="icon" href="/favicon.ico" />

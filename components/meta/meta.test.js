@@ -6,7 +6,7 @@ import Meta from "./meta";
 /** @test {Tests for Meta Component} */
 describe("Meta Component", () => {
   let wrapper;
-  const qtMetaTags = 24;
+  const qtMetaTags = 37;
   const qtLinkTags = 2;
   const qtScriptTags = 3;
 

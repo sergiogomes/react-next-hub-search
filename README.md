@@ -2,6 +2,8 @@
 
 [![time tracker](https://wakatime.com/badge/github/sergiogomes/react-next-hub-search.svg)](https://wakatime.com/badge/github/sergiogomes/react-next-hub-search)
 
+<https://react-next-hub-search.vercel.app/>
+
 An app that re-implements a portion of **GitHub's Search feature**, the user search, using their public API.
 The app should NOT require users of the application to provide GitHub permissions.
 Use <https://github.com/search> as a reference for functionality, but feel free to change style, behavior, and features as
