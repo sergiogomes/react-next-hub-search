@@ -1,5 +1,6 @@
 const NavBar = () => {
   return (
+    // Bootstrap default navbar, dark theme with search
     <nav className="navbar fixed-top navbar-dark bg-dark">
       <span className="navbar-brand mb-0 h1">NextHub</span>
       <form className="form-inline">

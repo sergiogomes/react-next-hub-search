@@ -19,11 +19,32 @@ The app should utilize GitHub's public API
 
 ## Commands
 
+Creation
+
 ```sh
 npx create-next-app react-next-hub-search
+```
+
+Running
+
+```sh
 npm run dev
+```
+
+Packages
+
+```sh
+npm install --save-dev @babel/core
+npm install --save-dev jest
+npm install --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
+npm install --save-dev babel-jest
 ```
 
 ## Bootstrap
 
 BootstrapCDN for styling at <https://getbootstrap.com/docs/4.5/getting-started/introduction/>
+
+## Jest
+
+Using Jest for testing.
+Configuration Documentation: <https://jestjs.io/docs/configuration.html>
