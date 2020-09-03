@@ -38,6 +38,7 @@ npm install --save-dev @babel/core
 npm install --save-dev jest
 npm install --save-dev enzyme enzyme-adapter-react-16 enzyme-to-json
 npm install --save-dev babel-jest
+npm install axios
 ```
 
 ## Bootstrap
