@@ -26,6 +26,10 @@ class Event extends React.Component {
       return ` deleted`;
     } else if (type === "ForkEvent") {
       return ` forked from`;
+    } else if (type === "MemberEvent") {
+      return ` member on`;
+    } else if (type === "PublicEvent") {
+      return ` turned public`;
     } else {
       console.error(`${type} not mapped.`);
       return ` ${type}`;

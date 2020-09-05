@@ -8,9 +8,8 @@ class EventsList extends React.Component {
     return (
       <div className="container">
         <ul className="list-unstyled">
-          {events.map((event) => (
-            <Event key={event.id} event={event} />
-          ))}
+          {events.length > 0 &&
+            events.map((event) => <Event key={event.id} event={event} />)}
         </ul>
       </div>
     );

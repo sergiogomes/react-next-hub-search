@@ -26,12 +26,20 @@ export const getEvents = () => {
   return axios
     .get(`${BASE_URL}/events`)
     .then((res) => {
-      // console.log(res.data);
-      return res.data;
+      return { ok: true, data: res.data };
     })
     .catch((error) => {
       console.error(error);
-      return [];
+      let message;
+      if (error.message) {
+        message = error.message;
+      } else if (error.response) {
+        message = error.response.statusText;
+        if (error.response.data) {
+          message = error.response.data.essage;
+        }
+      }
+      return { ok: false, data: message };
     });
 };
 

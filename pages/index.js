@@ -19,9 +19,16 @@ class Home extends React.Component {
 
   // Wait for the user on the server side before renders on browser
   static async getInitialProps() {
+    let events = [];
+    let error;
     const user = await getUser();
-    const events = await getEvents();
-    return { user, events };
+    const eventData = await getEvents();
+    if (eventData.ok) {
+      events = eventData.data;
+    } else {
+      error = eventData.data;
+    }
+    return { user, events, error };
   }
 
   handleOnSearch = (text) => {
@@ -36,10 +43,9 @@ class Home extends React.Component {
   };
 
   render() {
-    const { events } = this.props;
+    const { events, error } = this.props;
     const { users } = this.state;
-
-    // debugger;
+    console.log(error);
 
     return (
       <div className={styles.container}>
@@ -50,6 +56,20 @@ class Home extends React.Component {
 
         <main className={styles.main}>
           <h1 className={styles.title}>Welcome to NextHub!</h1>
+          {error && (
+            <div className="container">
+              <div className="alert alert-danger" role="alert">
+                <h5 className="alert-heading">Error!</h5>
+                <p>{error}</p>
+                <hr />
+                <p className="mb-0">
+                  API rate limit exceeded for 186.206.255.127. (But here's the
+                  good news: Authenticated requests get a higher rate limit.
+                  Check out the documentation for more details.)
+                </p>
+              </div>
+            </div>
+          )}
         </main>
 
         {users.length === 0 && <EventsList events={events || []} />}
