@@ -10,7 +10,23 @@ export const getUser = (user = "sergiogomes") => {
   return axios
     .get(`${BASE_URL}/users/${user}`)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
+      return res.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      return {};
+    });
+};
+
+/**
+ * function that returns recent events
+ */
+export const getEvents = () => {
+  return axios
+    .get(`${BASE_URL}/events`)
+    .then((res) => {
+      // console.log(res.data);
       return res.data;
     })
     .catch((error) => {
@@ -22,15 +38,19 @@ export const getUser = (user = "sergiogomes") => {
 /**
  * function that returns recent events
  */
-export const getEvents = () => {
+export const getSearchUsers = (text, page = 1) => {
   return axios
-    .get(`${BASE_URL}/events`)
+    .get(`${BASE_URL}/search/users?q=${text}&order=asc&page=${page}`)
     .then((res) => {
       console.log(res.data);
       return res.data;
     })
     .catch((error) => {
       console.error(error);
-      return [];
+      return {
+        total_count: 0,
+        incomplete_results: false,
+        items: [],
+      };
     });
 };

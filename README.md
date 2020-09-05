@@ -51,3 +51,14 @@ BootstrapCDN for styling at <https://getbootstrap.com/docs/4.5/getting-started/i
 
 Using Jest for testing.
 Configuration Documentation: <https://jestjs.io/docs/configuration.html>
+
+## GitHub API
+
+User
+<https://docs.github.com/en/rest/reference/users>
+
+Activity
+<https://docs.github.com/en/rest/reference/activity>
+
+Search Users
+<https://docs.github.com/en/rest/reference/search#search-users>
