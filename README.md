@@ -60,5 +60,23 @@ User
 Activity
 <https://docs.github.com/en/rest/reference/activity>
 
+Search codes
+<https://docs.github.com/en/rest/reference/search#search-code>
+
+Search commits
+<https://docs.github.com/en/rest/reference/search#search-commits>
+
+Search issues
+<https://docs.github.com/en/rest/reference/search#search-issues-and-pull-requests>
+
+Search labels
+<https://docs.github.com/en/rest/reference/search#search-labels>
+
+Search repositories
+<https://docs.github.com/en/rest/reference/search#search-repositories>
+
+Search topics
+<https://docs.github.com/en/rest/reference/search#search-topics>
+
 Search Users
 <https://docs.github.com/en/rest/reference/search#search-users>
