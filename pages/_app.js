@@ -22,6 +22,7 @@ class MyApp extends React.Component {
           <title>NextHub</title>
         </Head>
         <NavBar onSearch={this.handleOnSearch} />
+        <div className="responsive-spacer" />
         <div className="container-fluid py-5 mt-3">
           <Component {...pageProps} />
         </div>

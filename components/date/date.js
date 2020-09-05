@@ -28,7 +28,7 @@ const getMonthDesc = (month) => {
 export default function DateMonth({ ISOdate }) {
   try {
     const date = new Date(ISOdate);
-    const day = date.getDay();
+    const day = date.getUTCDate();
     const month = getMonthDesc(date.getMonth());
     return <span>{`${day} ${month}`}</span>;
   } catch (error) {

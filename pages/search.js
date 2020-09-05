@@ -130,14 +130,14 @@ class Search extends React.Component {
     return (
       <div className="row">
         {/* Bootstrap grid system */}
-        <div className="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
           <SideSearch
             changeSideSearchOption={this.handleSideSearchOption}
             // activeCategory={this.state.filter[0]}
             options={optionsArray || []}
           />
         </div>
-        <div className="col-sm-9 col-md-9 col-lg-9 col-xl-9">
+        <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
           <ResultSearch options={this.filterResults(optionsArray) || ph_obj} />
         </div>
       </div>
