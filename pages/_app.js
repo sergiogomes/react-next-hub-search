@@ -1,18 +1,34 @@
+import React from "react";
 import Head from "next/head";
+import Router from "next/router";
 
 import Meta from "../components/meta/meta";
+import NavBar from "../components/navbar/navbar";
+import Footer from "../components/footer/footer";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <>
-      <Head>
-        <Meta />
-        <title>NextHub</title>
-      </Head>
-      <Component {...pageProps} />
-    </>
-  );
+class MyApp extends React.Component {
+  handleOnSearch = (text) => {
+    Router.push(`/search?q=${text}`);
+  };
+
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <>
+        <Head>
+          <Meta />
+          <title>NextHub</title>
+        </Head>
+        <NavBar onSearch={this.handleOnSearch} />
+        <div className="container-fluid py-5 mt-3">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default MyApp;

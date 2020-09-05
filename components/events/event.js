@@ -30,6 +30,10 @@ class Event extends React.Component {
       return ` member on`;
     } else if (type === "PublicEvent") {
       return ` turned public`;
+    } else if (type === "ReleaseEvent") {
+      return ` a release on`;
+    } else if (type === "CommitCommentEvent") {
+      return ` commited on`;
     } else {
       console.error(`${type} not mapped.`);
       return ` ${type}`;
