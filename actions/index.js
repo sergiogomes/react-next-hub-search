@@ -65,11 +65,14 @@ export const getSearchCodes = (text, page = 1) => {
     return CODES_DATA;
   } else {
     return axios
-      .get(`${BASE_URL}/search/code?q=${text}&order=asc&page=${page}`, {
-        headers: {
-          Accept: "application/vnd.github.v3+json",
-        },
-      })
+      .get(
+        `${BASE_URL}/search/code?q=${text}+in%3Afile+user%3A${text}&order=asc&page=${page}`,
+        {
+          headers: {
+            Accept: "application/vnd.github.v3+json",
+          },
+        }
+      )
       .then((res) => {
         return res.data;
       })
