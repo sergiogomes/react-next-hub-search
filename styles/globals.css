@@ -34,6 +34,10 @@ a {
   display: grid;
 }
 
+.list-group-item + .list-group-item {
+  border-top-width: 1;
+}
+
 .responsive-border {
   border-bottom-color: #f9826c;
   border-bottom-width: 2px;

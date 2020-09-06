@@ -7,10 +7,7 @@ const Commit = (props) => {
   return (
     <div className="list-group-item">
       <small className="text-muted">
-        <Link
-          href="/repos/[user]/[repo]"
-          as={`/repos/${commit.repository.full_name}`}
-        >
+        <Link href="/[user]/[repo]" as={commit.repository.full_name}>
           <a className="font-weight-bold">
             {` ${commit.repository.full_name}`}
           </a>
@@ -18,7 +15,7 @@ const Commit = (props) => {
       </small>
       <div className="text-break">{commit.commit.message}</div>
       <small className="mt-0 mb-1 text-muted">
-        <Link href="/users/[id]" as={`/users/${commit.author.login}`}>
+        <Link href="/[user]" as={`/${commit.author.login}`}>
           <a className="font-weight-bold">{commit.author.login}</a>
         </Link>
         {` commited on `}

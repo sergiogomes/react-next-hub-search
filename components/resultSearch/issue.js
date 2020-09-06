@@ -17,10 +17,7 @@ const Issue = (props) => {
     <div className="list-group-item">
       <small className="text-muted">
         <span>
-          <Link
-            href="/repos/[user]/[repo]"
-            as={`/repos/${manageRepoUrl(issue.repository_url)}`}
-          >
+          <Link href="/[user]/[repo]" as={manageRepoUrl(issue.repository_url)}>
             <a className="font-weight-bold">
               {` ${manageRepoUrl(issue.repository_url)}`}
             </a>
@@ -37,7 +34,7 @@ const Issue = (props) => {
       </div>
       <small className="mt-0 mb-1 text-muted">
         <span>
-          <Link href="/users/[id]" as={`/users/${issue.user.login}`}>
+          <Link href="/[user]" as={`/${issue.user.login}`}>
             <a className="font-weight-bold">{issue.user.login}</a>
           </Link>
           {` opened on `}

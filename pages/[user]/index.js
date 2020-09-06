@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import DateMonth from "../../../components/date/date";
-import Repository from "../../../components/resultSearch/respository";
-import { getUser, getUserRepos } from "../../../actions/index";
+import DateMonth from "../../components/date/date";
+import Repository from "../../components/resultSearch/respository";
+import { getUser, getUserRepos } from "../../actions/index";
 
 const User = (props) => {
   const { user, repos } = props;
@@ -130,8 +130,8 @@ const User = (props) => {
 };
 
 User.getInitialProps = async ({ query }) => {
-  const user = await getUser(query.id);
-  const repos = await getUserRepos(query.id);
+  const user = await getUser(query.user);
+  const repos = await getUserRepos(query.user);
   return { user, repos };
 };
 

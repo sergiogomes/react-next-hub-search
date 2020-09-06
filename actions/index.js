@@ -34,12 +34,33 @@ export const getUser = (user = "sergiogomes") => {
 };
 
 /**
- * function that return user's repositories
+ * function that returns user's repositories
  * @param {string} user
  */
 export const getUserRepos = (user) => {
   return axios
     .get(`${BASE_URL}/users/${user}/repos`, {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      return {};
+    });
+};
+
+/**
+ * function that returns one repository
+ * @param {string} user
+ * @param {string} repo
+ */
+export const getUserRepository = (user, repo) => {
+  return axios
+    .get(`${BASE_URL}/repos/${user}/${repo}`, {
       headers: {
         Accept: "application/vnd.github.v3+json",
       },

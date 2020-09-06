@@ -7,7 +7,7 @@ const Repository = (props) => {
   return (
     <div className="list-group-item">
       <div>
-        <Link href="/repos/[user]/[repo]" as={`/repos/${repo.full_name}`}>
+        <Link href="/[user]/[repo]" as={repo.full_name}>
           <a className="font-weight-bold">{` ${repo.full_name}`}</a>
         </Link>
       </div>

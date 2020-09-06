@@ -6,7 +6,7 @@ const User = (props) => {
   const { user } = props;
   return (
     <div className="list-group-item">
-      <Link href="/users/[id]" as={`/users/${user.login}`}>
+      <Link href="/[user]" as={`/${user.login}`}>
         <a>
           <img
             src={user.avatar_url}
@@ -16,7 +16,7 @@ const User = (props) => {
         </a>
       </Link>
       <span>
-        <Link href="/users/[id]" as={`/users/${user.login}`}>
+        <Link href="/[user]" as={`/${user.login}`}>
           <a className="font-weight-bold text-break">{user.login}</a>
         </Link>
       </span>

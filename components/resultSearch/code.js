@@ -32,7 +32,7 @@ const Code = (props) => {
   return (
     <div className="list-group-item">
       <small className="text-muted">
-        <Link href="/users/[id]" as={`/users/${code.repository.owner.login}`}>
+        <Link href="/[user]" as={`/${code.repository.owner.login}`}>
           <a>
             <img
               src={code.repository.owner.avatar_url}
@@ -42,10 +42,7 @@ const Code = (props) => {
           </a>
         </Link>
         <span>
-          <Link
-            href="/repos/[user]/[repo]"
-            as={`/repos/${code.repository.full_name}`}
-          >
+          <Link href="/[user]/[repo]" as={code.repository.full_name}>
             <a className="font-weight-bold">{` ${code.repository.full_name}`}</a>
           </Link>
         </span>
