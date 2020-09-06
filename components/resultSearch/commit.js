@@ -11,7 +11,7 @@ const Commit = (props) => {
           href="/repos/[user]/[repo]"
           as={`/repos/${commit.repository.full_name}`}
         >
-          <a className="font-weight-bold stretched-link">
+          <a className="font-weight-bold">
             {` ${commit.repository.full_name}`}
           </a>
         </Link>
@@ -19,9 +19,7 @@ const Commit = (props) => {
       <div className="text-wrap">{commit.commit.message}</div>
       <small className="mt-0 mb-1 text-muted">
         <Link href="/users/[id]" as={`/users/${commit.author.login}`}>
-          <a className="font-weight-bold stretched-link">
-            {commit.author.login}
-          </a>
+          <a className="font-weight-bold">{commit.author.login}</a>
         </Link>
         {` commited on `}
         <DateMonth ISOdate={commit.commit.committer.date} />

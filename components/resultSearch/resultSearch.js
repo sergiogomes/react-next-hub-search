@@ -1,5 +1,6 @@
 import Repository from "./respository";
 import Commit from "./commit";
+import Issue from "./issue";
 
 const ResultSearch = (props) => {
   const { options } = props;
@@ -16,6 +17,7 @@ const ResultSearch = (props) => {
           data.items.map((item) => {
             if (data.id === 1) return <Repository key={item.id} repo={item} />;
             if (data.id === 3) return <Commit key={item.sha} commit={item} />;
+            if (data.id === 4) return <Issue key={item.id} issue={item} />;
           })}
       </div>
     </div>
