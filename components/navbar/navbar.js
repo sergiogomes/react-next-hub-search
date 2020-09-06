@@ -38,9 +38,6 @@ class NavBar extends React.Component {
               if (event.key === "Enter") {
                 event.preventDefault();
                 onSearch(event.target.value);
-                this.setState({
-                  text: "",
-                });
               }
             }}
           />
@@ -50,9 +47,6 @@ class NavBar extends React.Component {
             onClick={(event) => {
               event.preventDefault();
               onSearch(this.state.text);
-              this.setState({
-                text: "",
-              });
             }}
           >
             Search

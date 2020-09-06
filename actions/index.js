@@ -11,7 +11,7 @@ import {
 } from "../server/index";
 
 const BASE_URL = "https://api.github.com";
-const IS_DEV = false;
+const IS_DEV = true;
 
 /**
  * function to retrieve data from user

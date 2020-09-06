@@ -156,16 +156,13 @@ class Search extends React.Component {
             page={page}
             options={this.filterResults(optionsArray) || ph_obj}
           />
-
-          {this.filterResults(optionsArray)[0].results > 30 ? (
+          {this.filterResults(optionsArray)[0].results > 30 && (
             <Pagination
               text={text}
               page={page}
               options={this.filterResults(optionsArray) || ph_obj}
               changePage={this.handleChangePage}
             />
-          ) : (
-            <></>
           )}
         </div>
       </div>
