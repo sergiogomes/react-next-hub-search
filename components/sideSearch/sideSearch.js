@@ -19,7 +19,7 @@ const SideSearch = (props) => {
               item.results ? "badge-dark" : "badge-secondary"
             }`}
           >
-            {item.results}
+            {`${item.results >= 1000 ? "1K" : item.results}`}
           </span>
         </a>
       ))}

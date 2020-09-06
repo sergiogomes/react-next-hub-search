@@ -74,6 +74,7 @@ export const getSearchCodes = (text, page = 1) => {
         }
       )
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {
@@ -101,6 +102,7 @@ export const getSearchCommits = (text, page = 1) => {
         },
       })
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {
@@ -128,6 +130,7 @@ export const getSearchIssues = (text, page = 1) => {
         },
       })
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {
@@ -155,6 +158,7 @@ export const getSearchRepositories = (text, page = 1) => {
         },
       })
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {
@@ -182,6 +186,7 @@ export const getSearchTopics = (text, page = 1) => {
         },
       })
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {
@@ -205,6 +210,7 @@ export const getSearchUsers = (text, page = 1) => {
     return axios
       .get(`${BASE_URL}/search/users?q=${text}&order=asc&page=${page}`)
       .then((res) => {
+        if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
       .catch((error) => {

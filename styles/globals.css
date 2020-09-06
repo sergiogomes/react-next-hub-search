@@ -38,15 +38,18 @@ a {
 
 .responsive-spacer {
   padding-top: 8rem;
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 400px) {
   .responsive-spacer {
     padding-top: 4rem;
+    margin-top: unset;
   }
 }
 @media screen and (min-width: 580px) {
   .responsive-spacer {
     padding-top: unset;
+    margin-top: unset;
   }
 }

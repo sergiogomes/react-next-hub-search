@@ -1,7 +1,9 @@
 import React from "react";
+import Router from "next/router";
 
 import SideSearch from "../components/sideSearch/sideSearch";
 import ResultSearch from "../components/resultSearch/resultSearch";
+import Pagination from "../components/pagination/pagination";
 
 import {
   getSearchUsers,
@@ -30,13 +32,15 @@ class Search extends React.Component {
 
   static async getInitialProps({ query }) {
     const optionsArray = [];
+    const text = query.q;
+    const page = query.page;
 
-    const repositoriesData = await getSearchRepositories(query.q);
-    const codesData = await getSearchCodes(query.q);
-    const commitsData = await getSearchCommits(query.q);
-    const issuesData = await getSearchIssues(query.q);
-    const topicsData = await getSearchTopics(query.q);
-    const usersData = await getSearchUsers(query.q);
+    const repositoriesData = await getSearchRepositories(text, page);
+    const codesData = await getSearchCodes(text, page);
+    const commitsData = await getSearchCommits(text, page);
+    const issuesData = await getSearchIssues(text, page);
+    const topicsData = await getSearchTopics(text, page);
+    const usersData = await getSearchUsers(text, page);
 
     optionsArray.push({
       id: 1,
@@ -111,6 +115,8 @@ class Search extends React.Component {
 
     return {
       optionsArray,
+      text,
+      page,
     };
   }
 
@@ -124,8 +130,12 @@ class Search extends React.Component {
     });
   };
 
+  handleChangePage = (text, page) => {
+    Router.push(`/search?q=${text}&page=${page}`);
+  };
+
   render() {
-    const { optionsArray } = this.props;
+    const { optionsArray, text, page } = this.props;
 
     return (
       <div className="row">
@@ -139,6 +149,17 @@ class Search extends React.Component {
         </div>
         <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
           <ResultSearch options={this.filterResults(optionsArray) || ph_obj} />
+
+          {this.filterResults(optionsArray)[0].results > 30 ? (
+            <Pagination
+              text={text}
+              page={page}
+              options={this.filterResults(optionsArray) || ph_obj}
+              changePage={this.handleChangePage}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     );
