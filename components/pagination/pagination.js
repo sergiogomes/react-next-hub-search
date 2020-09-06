@@ -10,7 +10,7 @@ const Pagination = (props) => {
       <ul className="pagination justify-content-center">
         <li className="page-item">
           <a
-            className="page-link"
+            className="page-link stretched-link"
             href="#"
             aria-label="First"
             onClick={() => props.changePage(text, 1)}
@@ -21,7 +21,7 @@ const Pagination = (props) => {
         {pag - 1 >= 1 && (
           <li className="page-item">
             <a
-              className="page-link"
+              className="page-link stretched-link"
               href="#"
               onClick={() => props.changePage(text, pag - 1)}
             >
@@ -29,9 +29,9 @@ const Pagination = (props) => {
             </a>
           </li>
         )}
-        <li className="page-item">
+        <li className="page-item active">
           <a
-            className="page-link"
+            className="page-link stretched-link"
             href="#"
             onClick={() => props.changePage(text, pag)}
           >
@@ -41,7 +41,7 @@ const Pagination = (props) => {
         {pag + 1 <= last && (
           <li className="page-item">
             <a
-              className="page-link"
+              className="page-link stretched-link"
               href="#"
               onClick={() => props.changePage(text, pag + 1)}
             >
@@ -51,7 +51,7 @@ const Pagination = (props) => {
         )}
         <li className="page-item">
           <a
-            className="page-link"
+            className="page-link stretched-link"
             href="#"
             aria-label="Last"
             onClick={() => props.changePage(text, last)}
