@@ -2,6 +2,10 @@ import React from "react";
 import Link from "next/link";
 
 class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     text: "",
   };
@@ -45,7 +49,7 @@ class NavBar extends React.Component {
             type="role"
             onClick={(event) => {
               event.preventDefault();
-              onSearch(event.target.value);
+              onSearch(this.state.text);
               this.setState({
                 text: "",
               });

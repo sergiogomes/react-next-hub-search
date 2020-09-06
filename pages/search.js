@@ -26,7 +26,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: [1, "Repositories"],
+      filter: ["Repositories"],
     };
   }
 
@@ -34,6 +34,7 @@ class Search extends React.Component {
     const optionsArray = [];
     const text = query.q;
     const page = query.page;
+    const title = query.type;
 
     const repositoriesData = await getSearchRepositories(text, page);
     const codesData = await getSearchCodes(text, page);
@@ -120,18 +121,19 @@ class Search extends React.Component {
     };
   }
 
-  handleSideSearchOption = (option) => {
-    this.setState({ filter: [option.id, option.title] });
+  handleSideSearchOption = (option, text) => {
+    this.setState({ filter: [option.title] });
+    Router.push(`/search?q=${text}&page=${1}&type=${option.title}`);
   };
 
   filterResults = (options) => {
     return options.filter((option) => {
-      return option.id && option.id === this.state.filter[0];
+      return option.title && option.title === this.state.filter[0];
     });
   };
 
-  handleChangePage = (text, page) => {
-    Router.push(`/search?q=${text}&page=${page}`);
+  handleChangePage = (text, page, type) => {
+    Router.push(`/search?q=${text}&page=${page}&type=${type}`);
   };
 
   render() {
@@ -145,6 +147,7 @@ class Search extends React.Component {
             changeSideSearchOption={this.handleSideSearchOption}
             activeOption={this.state.filter[0]}
             options={optionsArray || []}
+            text={text}
           />
         </div>
         <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">

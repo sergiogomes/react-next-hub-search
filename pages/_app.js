@@ -9,7 +9,7 @@ import "../styles/globals.css";
 
 class MyApp extends React.Component {
   handleOnSearch = (text) => {
-    Router.push(`/search?q=${text}&page=1`);
+    Router.push(`/search?q=${text}&page=1&type=Repositories`);
   };
 
   render() {

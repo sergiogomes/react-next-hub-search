@@ -14,7 +14,7 @@ const Pagination = (props) => {
               className="page-link stretched-link"
               href="#"
               aria-label="First"
-              onClick={() => props.changePage(text, 1)}
+              onClick={() => props.changePage(text, 1, data.title)}
             >
               <span aria-hidden="true">&laquo; First</span>
             </a>
@@ -25,7 +25,7 @@ const Pagination = (props) => {
             <a
               className="page-link stretched-link"
               href="#"
-              onClick={() => props.changePage(text, pag - 2)}
+              onClick={() => props.changePage(text, pag - 2, data.title)}
             >
               {pag - 2}
             </a>
@@ -36,7 +36,7 @@ const Pagination = (props) => {
             <a
               className="page-link stretched-link"
               href="#"
-              onClick={() => props.changePage(text, pag - 1)}
+              onClick={() => props.changePage(text, pag - 1, data.title)}
             >
               {pag - 1}
             </a>
@@ -46,7 +46,7 @@ const Pagination = (props) => {
           <a
             className="page-link stretched-link"
             href="#"
-            onClick={() => props.changePage(text, pag)}
+            onClick={() => props.changePage(text, pag, data.title)}
           >
             {pag}
           </a>
@@ -56,7 +56,7 @@ const Pagination = (props) => {
             <a
               className="page-link stretched-link"
               href="#"
-              onClick={() => props.changePage(text, pag + 1)}
+              onClick={() => props.changePage(text, pag + 1, data.title)}
             >
               {pag + 1}
             </a>
@@ -67,7 +67,7 @@ const Pagination = (props) => {
             <a
               className="page-link stretched-link"
               href="#"
-              onClick={() => props.changePage(text, pag + 2)}
+              onClick={() => props.changePage(text, pag + 2, data.title)}
             >
               {pag + 2}
             </a>
@@ -79,7 +79,7 @@ const Pagination = (props) => {
               className="page-link stretched-link"
               href="#"
               aria-label="Last"
-              onClick={() => props.changePage(text, last)}
+              onClick={() => props.changePage(text, last, data.title)}
             >
               <span aria-hidden="true">Last &raquo;</span>
             </a>
