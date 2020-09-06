@@ -19,6 +19,8 @@ As a user,
 
 The app should utilize GitHub's public API
 
+![sergiogomes-profile](https://raw.githubusercontent.com/sergiogomes/react-next-hub-search/master/public/sergiogomes-profile.png)
+
 ## Commands
 
 Creation
