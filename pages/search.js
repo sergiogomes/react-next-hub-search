@@ -133,7 +133,7 @@ class Search extends React.Component {
         <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
           <SideSearch
             changeSideSearchOption={this.handleSideSearchOption}
-            // activeCategory={this.state.filter[0]}
+            activeOption={this.state.filter[0]}
             options={optionsArray || []}
           />
         </div>

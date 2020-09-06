@@ -9,8 +9,8 @@ const SideSearch = (props) => {
           key={item.id}
           onClick={() => props.changeSideSearchOption(item)}
           href="#"
-          className={`list-group-item d-flex justify-content-between align-items-center ${
-            props.activeCategory === item.id ? "active" : ""
+          className={`list-group-item list-group-item-action d-flex justify-content-between align-items-center ${
+            props.activeOption === item.id ? "bl-red" : ""
           }`}
         >
           {item.title}
