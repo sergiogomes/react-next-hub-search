@@ -20,6 +20,11 @@ a {
   width: 64px;
 }
 
+.sm-img {
+  height: 32px;
+  width: 32px;
+}
+
 .bl-red {
   border-left-color: #f9826c;
   border-left-width: 2px;
