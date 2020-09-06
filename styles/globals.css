@@ -25,15 +25,21 @@ a {
   width: 32px;
 }
 
-.bl-red {
-  border-left-color: #f9826c;
-  border-left-width: 2px;
-  border-block-end-style: solid;
-}
-
 .circle {
   border-radius: 50%;
   height: 11px;
+}
+
+.responsive-border {
+  border-bottom-color: #f9826c;
+  border-bottom-width: 2px;
+  border-block-end-style: solid;
+}
+
+.responsive-list {
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow: auto;
 }
 
 .responsive-spacer {
@@ -51,5 +57,17 @@ a {
   .responsive-spacer {
     padding-top: unset;
     margin-top: unset;
+  }
+}
+@media screen and (min-width: 768px) {
+  .responsive-list {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .responsive-border {
+    border-left-color: #f9826c;
+    border-left-width: 2px;
+    border-bottom-color: rgba(0, 0, 0, 0.125);
+    border-bottom-width: 1px;
   }
 }

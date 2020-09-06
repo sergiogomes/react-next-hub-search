@@ -50,12 +50,18 @@ const Code = (props) => {
           </Link>
         </span>
       </small>
-      <div className="text-wrap ml-5">
+      <div className="ml-5">
         <Link href={code.html_url}>
-          <a className="font-weight-bold">{code.path}</a>
+          <a
+            className="font-weight-bold text-break"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {code.path}
+          </a>
         </Link>
       </div>
-      <div className="text-wrap ml-5">
+      <div className="ml-5">
         <small className="text-muted">{getLanguageDesc(code.name)}</small>
       </div>
       {/* <br />

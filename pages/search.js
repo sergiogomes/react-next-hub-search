@@ -148,7 +148,11 @@ class Search extends React.Component {
           />
         </div>
         <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-          <ResultSearch options={this.filterResults(optionsArray) || ph_obj} />
+          <ResultSearch
+            text={text}
+            page={page}
+            options={this.filterResults(optionsArray) || ph_obj}
+          />
 
           {this.filterResults(optionsArray)[0].results > 30 ? (
             <Pagination

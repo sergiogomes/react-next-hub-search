@@ -16,7 +16,7 @@ const Commit = (props) => {
           </a>
         </Link>
       </small>
-      <div className="text-wrap">{commit.commit.message}</div>
+      <div className="text-break">{commit.commit.message}</div>
       <small className="mt-0 mb-1 text-muted">
         <Link href="/users/[id]" as={`/users/${commit.author.login}`}>
           <a className="font-weight-bold">{commit.author.login}</a>

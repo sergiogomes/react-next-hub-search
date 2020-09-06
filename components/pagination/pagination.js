@@ -8,16 +8,29 @@ const Pagination = (props) => {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center">
-        <li className="page-item">
-          <a
-            className="page-link stretched-link"
-            href="#"
-            aria-label="First"
-            onClick={() => props.changePage(text, 1)}
-          >
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
+        {pag > 2 && (
+          <li className="page-item">
+            <a
+              className="page-link stretched-link"
+              href="#"
+              aria-label="First"
+              onClick={() => props.changePage(text, 1)}
+            >
+              <span aria-hidden="true">&laquo; First</span>
+            </a>
+          </li>
+        )}
+        {pag - 2 >= 1 && (
+          <li className="page-item">
+            <a
+              className="page-link stretched-link"
+              href="#"
+              onClick={() => props.changePage(text, pag - 2)}
+            >
+              {pag - 2}
+            </a>
+          </li>
+        )}
         {pag - 1 >= 1 && (
           <li className="page-item">
             <a
@@ -49,16 +62,29 @@ const Pagination = (props) => {
             </a>
           </li>
         )}
-        <li className="page-item">
-          <a
-            className="page-link stretched-link"
-            href="#"
-            aria-label="Last"
-            onClick={() => props.changePage(text, last)}
-          >
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
+        {pag + 2 <= last && (
+          <li className="page-item">
+            <a
+              className="page-link stretched-link"
+              href="#"
+              onClick={() => props.changePage(text, pag + 2)}
+            >
+              {pag + 2}
+            </a>
+          </li>
+        )}
+        {pag < last - 1 && (
+          <li className="page-item">
+            <a
+              className="page-link stretched-link"
+              href="#"
+              aria-label="Last"
+              onClick={() => props.changePage(text, last)}
+            >
+              <span aria-hidden="true">Last &raquo;</span>
+            </a>
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -17,7 +17,7 @@ const User = (props) => {
       </Link>
       <span>
         <Link href="/users/[id]" as={`/users/${user.login}`}>
-          <a className="font-weight-bold">{user.login}</a>
+          <a className="font-weight-bold text-break">{user.login}</a>
         </Link>
       </span>
     </div>

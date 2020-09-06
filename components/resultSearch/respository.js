@@ -11,7 +11,7 @@ const Repository = (props) => {
           <a className="font-weight-bold">{` ${repo.full_name}`}</a>
         </Link>
       </div>
-      <div>{repo.description}</div>
+      <div className="text-break">{repo.description}</div>
       <div className="list-group-horizontal-sm">
         {repo.topics.map((topic) => (
           <span

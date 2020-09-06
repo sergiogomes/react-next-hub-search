@@ -28,9 +28,11 @@ const Issue = (props) => {
         </span>
         <span>{` #${issue.number}`}</span>
       </small>
-      <div className="text-wrap">
+      <div>
         <Link href={issue.html_url}>
-          <a>{issue.title}</a>
+          <a target="_blank" rel="noopener noreferrer" className="text-break">
+            {issue.title}
+          </a>
         </Link>
       </div>
       <small className="mt-0 mb-1 text-muted">

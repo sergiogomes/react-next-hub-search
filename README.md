@@ -54,7 +54,7 @@ Configuration Documentation: <https://jestjs.io/docs/configuration.html>
 
 ## GitHub API
 
-The results are limited to the first 1000 results.
+The results are limited to the 1000 first results.
 
 User
 <https://docs.github.com/en/rest/reference/users>

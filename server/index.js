@@ -10666,7 +10666,7 @@ export const REPOSITORIES_DATA = {
 };
 
 export const TOPICS_DATA = {
-  total_count: 0,
+  total_count: 45,
   incomplete_results: false,
   items: [
     {
