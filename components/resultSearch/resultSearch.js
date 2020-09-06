@@ -1,6 +1,7 @@
 import Repository from "./respository";
 import Commit from "./commit";
 import Issue from "./issue";
+import Topic from "./topic";
 import User from "./user";
 import Code from "./code";
 
@@ -21,6 +22,7 @@ const ResultSearch = (props) => {
             if (data.id === 2) return <Code key={item.sha} code={item} />;
             if (data.id === 3) return <Commit key={item.sha} commit={item} />;
             if (data.id === 4) return <Issue key={item.id} issue={item} />;
+            if (data.id === 8) return <Topic key={item.id} topic={item} />;
             if (data.id === 10) return <User key={item.id} user={item} />;
           })}
       </div>
