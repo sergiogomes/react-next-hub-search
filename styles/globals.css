@@ -30,6 +30,10 @@ a {
   height: 11px;
 }
 
+.d-grid {
+  display: grid;
+}
+
 .responsive-border {
   border-bottom-color: #f9826c;
   border-bottom-width: 2px;
