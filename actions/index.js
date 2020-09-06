@@ -19,7 +19,31 @@ const IS_DEV = false;
  */
 export const getUser = (user = "sergiogomes") => {
   return axios
-    .get(`${BASE_URL}/users/${user}`)
+    .get(`${BASE_URL}/users/${user}`, {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      return {};
+    });
+};
+
+/**
+ * function that return user's repositories
+ * @param {string} user
+ */
+export const getUserRepos = (user) => {
+  return axios
+    .get(`${BASE_URL}/users/${user}/repos`, {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+    })
     .then((res) => {
       return res.data;
     })

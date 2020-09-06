@@ -13,15 +13,17 @@ const Repository = (props) => {
       </div>
       <div className="text-break">{repo.description}</div>
       <div className="list-group-horizontal-sm">
-        {repo.topics.map((topic) => (
-          <span
-            key={topic}
-            className="badge badge-pill badge-primary mr-1 mt-1"
-          >
-            {topic}
-          </span>
-        ))}
+        {repo.topics &&
+          repo.topics.map((topic) => (
+            <span
+              key={topic}
+              className="badge badge-pill badge-primary mr-1 mt-1"
+            >
+              {topic}
+            </span>
+          ))}
       </div>
+      <small>{repo.language}</small>
       <small>
         <span className="text-muted">
           {` Updated on `}

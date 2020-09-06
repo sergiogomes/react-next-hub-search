@@ -1,10 +1,11 @@
 import Link from "next/link";
 
 import DateMonth from "../../../components/date/date";
-import { getUser } from "../../../actions/index";
+import Repository from "../../../components/resultSearch/respository";
+import { getUser, getUserRepos } from "../../../actions/index";
 
 const User = (props) => {
-  const { user } = props;
+  const { user, repos } = props;
 
   const subject = "NextHub";
   const message =
@@ -13,20 +14,24 @@ const User = (props) => {
 
   return (
     <div className="container">
-      <div className="row jumbotron">
+      <div className="row">
         <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-          <img
-            src={user.avatar_url}
-            className="mr-3 rounded-circle w-100"
-            alt={user.login}
-          />
-        </div>
-        <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
-          <div className="py-3">
-            <h4>{user.name}</h4>
-            <div className="text-muted">{user.login}</div>
-            <div>{user.bio}</div>
+          <div className="row">
+            <div className="col-3 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <img
+                src={user.avatar_url}
+                className="mr-3 rounded-circle w-100"
+                alt={user.login}
+              />
+            </div>
+            <div className="col-9 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+              <div className="py-3">
+                <h4>{user.name}</h4>
+                <div className="text-muted">{user.login}</div>
+              </div>
+            </div>
           </div>
+          <div className="py-2">{user.bio}</div>
           <div className="d-grid">
             <small>
               <Link href={user.blog}>
@@ -66,17 +71,6 @@ const User = (props) => {
               </address>
             )}
             <small>
-              <Link href={user.repos_url}>
-                <a
-                  className="text-break"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <strong>{user.public_repos}</strong> public repositories
-                </a>
-              </Link>
-            </small>
-            <small>
               <Link href={user.followers_url}>
                 <a
                   className="text-break"
@@ -113,9 +107,22 @@ const User = (props) => {
               {`Created on `}
               <DateMonth ISOdate={user.created_at} />
             </small>
-            {/* <br />
-      <span>{JSON.stringify(user, null, 2)}</span> */}
           </div>
+        </div>
+        <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+          <div className="py-3">
+            <h4>
+              <strong>{user.public_repos}</strong> public repositories
+            </h4>
+          </div>
+          <div className="list-group list-group-flush">
+            {repos.map((repo) => (
+              <Repository key={repo.id} repo={repo} />
+            ))}
+          </div>
+
+          {/* <br />
+          <span>{JSON.stringify(repos, null, 2)}</span> */}
         </div>
       </div>
     </div>
@@ -124,7 +131,8 @@ const User = (props) => {
 
 User.getInitialProps = async ({ query }) => {
   const user = await getUser(query.id);
-  return { user };
+  const repos = await getUserRepos(query.id);
+  return { user, repos };
 };
 
 export default User;
