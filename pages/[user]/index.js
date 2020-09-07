@@ -116,9 +116,8 @@ const User = (props) => {
             </h4>
           </div>
           <div className="list-group list-group-flush">
-            {repos.map((repo) => (
-              <Repository key={repo.id} repo={repo} />
-            ))}
+            {repos &&
+              repos.map((repo) => <Repository key={repo.id} repo={repo} />)}
           </div>
 
           {/* <br />
