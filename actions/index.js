@@ -24,13 +24,8 @@ export const getUser = (user = "sergiogomes") => {
         Accept: "application/vnd.github.v3+json",
       },
     })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      return {};
-    });
+    .then((res) => res.data)
+    .catch((error) => error);
 };
 
 /**
@@ -44,13 +39,8 @@ export const getUserRepos = (user) => {
         Accept: "application/vnd.github.v3+json",
       },
     })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      return {};
-    });
+    .then((res) => res.data)
+    .catch((error) => error);
 };
 
 /**
@@ -65,13 +55,8 @@ export const getUserRepository = (user, repo) => {
         Accept: "application/vnd.github.v3+json",
       },
     })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      return {};
-    });
+    .then((res) => res.data)
+    .catch((error) => error);
 };
 
 /**
@@ -87,13 +72,8 @@ export const getUserRepositoryCommits = (user, repo, page = 1) => {
         Accept: "application/vnd.github.v3+json",
       },
     })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((error) => {
-      console.error(error);
-      return {};
-    });
+    .then((res) => res.data)
+    .catch((error) => error);
 };
 
 /**
@@ -148,7 +128,7 @@ export const getSearchCodes = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });
@@ -176,7 +156,7 @@ export const getSearchCommits = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });
@@ -204,7 +184,7 @@ export const getSearchIssues = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });
@@ -232,7 +212,7 @@ export const getSearchRepositories = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });
@@ -260,7 +240,7 @@ export const getSearchTopics = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });
@@ -284,7 +264,7 @@ export const getSearchUsers = (text, page = 1) => {
         console.error(error);
         return {
           total_count: 0,
-          incomplete_results: false,
+          incomplete_results: true,
           items: [],
         };
       });

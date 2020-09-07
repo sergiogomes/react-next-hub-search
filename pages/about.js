@@ -36,7 +36,10 @@ class About extends React.Component {
       (res) => {
         this.setState({
           commits: res,
-          pagination: { title: "Commits", results: res.length },
+          pagination: {
+            title: "Commits",
+            results: res.length < 30 ? res.length : 100,
+          },
         });
       }
     );
@@ -119,13 +122,18 @@ class About extends React.Component {
             ))}
         </div>
 
-        {this.state.pagination.results > 20 && (
+        {this.state.pagination.results > 30 && (
           <Pagination
             text="Commits"
             page={this.state.page}
             options={this.state.pagination || ph_obj}
             changePage={this.handleChangePage}
           />
+        )}
+        {this.state.pagination === 100 && (
+          <small className="alert alert-warning mt-2" role="alert">
+            Commits endpoint don't have total count.
+          </small>
         )}
       </div>
     );
