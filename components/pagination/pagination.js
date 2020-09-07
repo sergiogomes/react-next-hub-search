@@ -1,6 +1,6 @@
 const Pagination = (props) => {
   const { options, text, page } = props;
-  const data = options[0];
+  const data = options;
   const last = Math.floor(data.results / 30) + 1;
   const pag = parseInt(page);
 

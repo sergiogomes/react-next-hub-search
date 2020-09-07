@@ -1,6 +1,18 @@
 import React from "react";
 
 import packageJson from "../package.json";
+import Commit from "../components/resultSearch/commit";
+import Pagination from "../components/pagination/pagination";
+
+import { getUserRepositoryCommits } from "../actions/index";
+
+const ph_obj = {
+  id: 0,
+  results: 0,
+  items: [],
+  title: "",
+  single: "",
+};
 
 class About extends React.Component {
   constructor(props) {
@@ -13,10 +25,21 @@ class About extends React.Component {
       tags: ["nextjs", "react", "bootstrap", "github", "axios", "vercel"],
       emailLink: "",
       version: "",
+      page: 1,
+      pagination: { title: "Commits", results: 0 },
+      commits: [],
     };
   }
 
   componentDidMount() {
+    getUserRepositoryCommits("sergiogomes", "react-next-hub-search").then(
+      (res) => {
+        this.setState({
+          commits: res,
+          pagination: { title: "Commits", results: res.length },
+        });
+      }
+    );
     this.setState({
       emailLink: `mailto:${this.state.email}?subject=${this.state.subject}&body=${this.state.message}`,
     });
@@ -26,6 +49,19 @@ class About extends React.Component {
       });
     }
   }
+
+  handleChangePage = (text, page, type) => {
+    this.setState({
+      page: page,
+    });
+    getUserRepositoryCommits("sergiogomes", "react-next-hub-search", page).then(
+      (res) => {
+        this.setState({
+          commits: res,
+        });
+      }
+    );
+  };
 
   render() {
     return (
@@ -67,6 +103,30 @@ class About extends React.Component {
             </p>
           </address>
         </div>
+
+        {this.state.commits.length && (
+          <div className="py-3">
+            <h4>Changelog</h4>
+            <div className="text-muted">
+              <strong>{this.state.commits.length}</strong> commits
+            </div>
+          </div>
+        )}
+        <div className="list-group list-group-flush">
+          {this.state.commits.length &&
+            this.state.commits.map((commit) => (
+              <Commit key={commit.sha} commit={commit} />
+            ))}
+        </div>
+
+        {this.state.pagination.results > 20 && (
+          <Pagination
+            text="Commits"
+            page={this.state.page}
+            options={this.state.pagination || ph_obj}
+            changePage={this.handleChangePage}
+          />
+        )}
       </div>
     );
   }

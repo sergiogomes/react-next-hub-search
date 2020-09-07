@@ -75,6 +75,28 @@ export const getUserRepository = (user, repo) => {
 };
 
 /**
+ * function that returns repository commits
+ * @param {string} user
+ * @param {string} repo
+ * @param {string} page
+ */
+export const getUserRepositoryCommits = (user, repo, page = 1) => {
+  return axios
+    .get(`${BASE_URL}/repos/${user}/${repo}/commits?page=${page}`, {
+      headers: {
+        Accept: "application/vnd.github.v3+json",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      return {};
+    });
+};
+
+/**
  * function that returns recent events
  */
 export const getEvents = () => {
