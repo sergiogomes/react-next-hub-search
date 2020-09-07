@@ -1,6 +1,6 @@
 {
   "name": "react-next-hub-search",
-  "version": "0.1.40",
+  "version": "0.1.41",
   "private": true,
   "author": {
     "name": "Sergio Gomes",
@@ -18,11 +18,11 @@
   ],
   "description": "An app that re-implements a portion of GitHub's Search feature, the user search, using their public API",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "dev": "next dev ./src",
+    "build": "next build ./src",
+    "start": "next start ./src",
+    "test": "jest --watch ./src",
+    "test:ci": "jest --ci ./src"
   },
   "dependencies": {
     "axios": "^0.20.0",

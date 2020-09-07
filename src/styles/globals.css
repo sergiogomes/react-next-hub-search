@@ -1,0 +1,81 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.media > .rounded-circle {
+  height: 64px;
+  width: 64px;
+}
+
+.sm-img {
+  height: 32px;
+  width: 32px;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 11px;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.list-group-item + .list-group-item {
+  border-top-width: 1;
+}
+
+.responsive-border {
+  border-bottom-color: #f9826c;
+  border-bottom-width: 2px;
+  border-block-end-style: solid;
+}
+
+.responsive-list {
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.responsive-spacer {
+  padding-top: 8rem;
+  margin-top: 2rem;
+}
+
+@media screen and (min-width: 400px) {
+  .responsive-spacer {
+    padding-top: 4rem;
+    margin-top: unset;
+  }
+}
+@media screen and (min-width: 580px) {
+  .responsive-spacer {
+    padding-top: unset;
+    margin-top: unset;
+  }
+}
+@media screen and (min-width: 768px) {
+  .responsive-list {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .responsive-border {
+    border-left-color: #f9826c;
+    border-left-width: 2px;
+    border-bottom-color: rgba(0, 0, 0, 0.125);
+    border-bottom-width: 1px;
+  }
+}
