@@ -2,11 +2,15 @@ import Link from "next/link";
 
 import DateMonth from "../../../components/date/date";
 import Commit from "../../../components/resultSearch/commit";
+import Error from "../../../components/error/error";
 
-import { getUserRepository } from "../../../actions/index";
+import {
+  getUserRepository,
+  getUserRepositoryCommits,
+} from "../../../actions/index";
 
 const Repositoy = (props) => {
-  const { repo } = props;
+  const { repo, commits } = props;
   const list = [
     {
       count: repo.subscribers_count,
@@ -112,26 +116,14 @@ const Repositoy = (props) => {
       </div>
     );
   } else {
-    return (
-      <div className="container">
-        <div className="alert alert-danger" role="alert">
-          <h5 className="alert-heading">Error!</h5>
-          <p>Request failed with status code 403</p>
-          <hr />
-          <p className="mb-0">
-            API rate limit exceeded for 186.206.255.127. (But here's the good
-            news: Authenticated requests get a higher rate limit. Check out the
-            documentation for more details.)
-          </p>
-        </div>
-      </div>
-    );
+    return <Error />;
   }
 };
 
 Repositoy.getInitialProps = async ({ query }) => {
   const repo = await getUserRepository(query.user, query.repo);
-  return { repo };
+  const commits = await getUserRepositoryCommits(query.user, query.repo);
+  return { repo, commits };
 };
 
 export default Repositoy;

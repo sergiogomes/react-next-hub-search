@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import DateMonth from "../../components/date/date";
 import Repository from "../../components/resultSearch/respository";
+import Error from "../../components/error/error";
+
 import { getUser, getUserRepos } from "../../actions/index";
 
 const User = (props) => {
@@ -110,6 +112,7 @@ const User = (props) => {
               </small>
             </div>
           </div>
+
           <div className="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
             <div className="py-3">
               <h4>
@@ -120,28 +123,12 @@ const User = (props) => {
               {repos &&
                 repos.map((repo) => <Repository key={repo.id} repo={repo} />)}
             </div>
-
-            {/* <br />
-          <span>{JSON.stringify(repos, null, 2)}</span> */}
           </div>
         </div>
       </div>
     );
   } else {
-    return (
-      <div className="container">
-        <div className="alert alert-danger" role="alert">
-          <h5 className="alert-heading">Error!</h5>
-          <p>Request failed with status code 403</p>
-          <hr />
-          <p className="mb-0">
-            API rate limit exceeded for 186.206.255.127. (But here's the good
-            news: Authenticated requests get a higher rate limit. Check out the
-            documentation for more details.)
-          </p>
-        </div>
-      </div>
-    );
+    return <Error message={user.message} />;
   }
 };
 
