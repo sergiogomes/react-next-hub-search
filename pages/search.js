@@ -34,7 +34,6 @@ class Search extends React.Component {
     const optionsArray = [];
     const text = query.q;
     const page = query.page;
-    const title = query.type;
 
     const repositoriesData = await getSearchRepositories(text, page);
     const codesData = await getSearchCodes(text, page);
@@ -160,7 +159,7 @@ class Search extends React.Component {
             <Pagination
               text={text}
               page={page}
-              options={this.filterResults(optionsArray) || ph_obj}
+              options={this.filterResults(optionsArray)[0] || ph_obj}
               changePage={this.handleChangePage}
             />
           )}
