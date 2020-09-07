@@ -3,41 +3,31 @@ import Link from "next/link";
 
 import DateMonth from "../date/date";
 
+const eventMap = {
+  PushEvent: () => "pushed to",
+  PullRequestEvent: (payload) =>
+    ` ${payload.number} ${
+      payload.number === 1 ? " pull request " : " pull requests "
+    }`,
+  CreateEvent: () => "created",
+  WatchEvent: () => "to watch",
+  PullRequestReviewCommentEvent: () => "a review on",
+  PullRequestReviewEvent: () => "a review on",
+  IssueCommentEvent: () => "issue",
+  IssuesEvent: () => "issue",
+  DeleteEvent: () => "deleted",
+  ForkEvent: () => "forked from",
+  MemberEvent: () => "member on",
+  PublicEvent: () => "turned public",
+  ReleaseEvent: () => "a release on",
+  CommitCommentEvent: () => "commited on",
+};
+
 class Event extends React.Component {
   renderDescription({ type, payload }) {
-    if (type === "PushEvent") {
-      return ` pushed to`;
-    } else if (type === "PullRequestEvent") {
-      return ` ${payload.number} ${
-        payload.number === 1 ? " pull request " : " pull requests "
-      }`;
-    } else if (type === "CreateEvent") {
-      return ` created`;
-    } else if (type === "WatchEvent") {
-      return ` to watch`;
-    } else if (
-      type === "PullRequestReviewCommentEvent" ||
-      type === "PullRequestReviewEvent"
-    ) {
-      return ` a review on`;
-    } else if (type === "IssueCommentEvent" || type === "IssuesEvent") {
-      return ` issue`;
-    } else if (type === "DeleteEvent") {
-      return ` deleted`;
-    } else if (type === "ForkEvent") {
-      return ` forked from`;
-    } else if (type === "MemberEvent") {
-      return ` member on`;
-    } else if (type === "PublicEvent") {
-      return ` turned public`;
-    } else if (type === "ReleaseEvent") {
-      return ` a release on`;
-    } else if (type === "CommitCommentEvent") {
-      return ` commited on`;
-    } else {
-      console.error(`${type} not mapped.`);
-      return ` ${type}`;
-    }
+    const messageFn = eventMap[type];
+    const message = messageFn && messageFn(payload);
+    return message;
   }
 
   renderAction(action) {
@@ -61,7 +51,7 @@ class Event extends React.Component {
             </Link>
           </span>
           <span>{this.renderAction(event.payload.action)}</span>
-          <span>{this.renderDescription(event)}</span>
+          <span>{` ${this.renderDescription(event)}`}</span>
           <span>
             <Link href="/[user]/[repo]" as={event.repo.name}>
               <a className="font-weight-bold">{` ${event.repo.name}`}</a>

@@ -8,10 +8,10 @@ import {
   ISSUES_DATA,
   REPOSITORIES_DATA,
   TOPICS_DATA,
-} from "../server/index";
+} from "./mockups/index";
 
 const BASE_URL = "https://api.github.com";
-const IS_DEV = false;
+const IS_DEV = true;
 
 /**
  * function to retrieve data from user
@@ -89,7 +89,6 @@ export const getEvents = () => {
         return { ok: true, data: res.data };
       })
       .catch((error) => {
-        console.error(error);
         let message;
         if (error.message) {
           message = error.message;
@@ -124,8 +123,7 @@ export const getSearchCodes = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,
@@ -152,8 +150,7 @@ export const getSearchCommits = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,
@@ -180,8 +177,7 @@ export const getSearchIssues = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,
@@ -208,8 +204,7 @@ export const getSearchRepositories = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,
@@ -236,8 +231,7 @@ export const getSearchTopics = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,
@@ -260,8 +254,7 @@ export const getSearchUsers = (text, page = 1) => {
         if (res.data.total_count > 1000) res.data.total_count = 1000;
         return res.data;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         return {
           total_count: 0,
           incomplete_results: true,

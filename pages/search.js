@@ -4,7 +4,6 @@ import Router from "next/router";
 import SideSearch from "../components/sideSearch/sideSearch";
 import ResultSearch from "../components/resultSearch/resultSearch";
 import Pagination from "../components/pagination/pagination";
-import Error from "../components/error/error";
 
 import {
   getSearchUsers,
@@ -35,7 +34,6 @@ class Search extends React.Component {
     const optionsArray = [];
     const text = query.q;
     const page = query.page;
-    let error = false;
 
     const repositoriesData = await getSearchRepositories(text, page);
     const codesData = await getSearchCodes(text, page);
@@ -43,13 +41,6 @@ class Search extends React.Component {
     const issuesData = await getSearchIssues(text, page);
     const topicsData = await getSearchTopics(text, page);
     const usersData = await getSearchUsers(text, page);
-
-    error = repositoriesData.incomplete_results;
-    if (!error) error = codesData.incomplete_results;
-    if (!error) error = commitsData.incomplete_results;
-    if (!error) error = issuesData.incomplete_results;
-    if (!error) error = topicsData.incomplete_results;
-    if (!error) error = usersData.incomplete_results;
 
     optionsArray.push({
       id: 1,
@@ -126,7 +117,6 @@ class Search extends React.Component {
       optionsArray,
       text,
       page,
-      error,
     };
   }
 
@@ -146,7 +136,7 @@ class Search extends React.Component {
   };
 
   render() {
-    const { optionsArray, text, page, error } = this.props;
+    const { optionsArray, text, page } = this.props;
 
     return (
       <div className="row">
@@ -165,7 +155,6 @@ class Search extends React.Component {
             page={page}
             options={this.filterResults(optionsArray) || ph_obj}
           />
-          {error && <Error message="" />}
           {this.filterResults(optionsArray)[0].results > 30 && (
             <Pagination
               text={text}
