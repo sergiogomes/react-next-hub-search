@@ -1,10 +1,10 @@
 import React from "react";
 
-import packageJson from "../package.json";
+import packageJson from "../../package.json";
 import Commit from "../components/resultSearch/commit";
 import Pagination from "../components/pagination/pagination";
 
-import { getUserRepositoryCommits } from "../actions/index";
+import { getUserRepositoryCommits } from "../../actions";
 
 const ph_obj = {
   id: 0,
@@ -22,7 +22,15 @@ class About extends React.Component {
       subject: "NextHub",
       message:
         "Hello!%0D%0A%0D%0ASaw%20your%20web%20app%20NextHub,%20and%20wanted%20to%20talk%20to%20you.%0D%0A%0D%0AThanks.",
-      tags: ["nextjs", "react", "bootstrap", "github", "axios", "vercel"],
+      tags: [
+        "nextjs",
+        "react",
+        "bootstrap",
+        "github",
+        "axios",
+        "vercel",
+        "wakatime",
+      ],
       emailLink: "",
       version: "",
       page: 1,

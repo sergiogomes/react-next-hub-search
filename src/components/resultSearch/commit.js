@@ -17,14 +17,15 @@ const Commit = (props) => {
       )}
       <div className="text-break">{commit.commit.message}</div>
       <small className="mt-0 mb-1 text-muted">
-        <Link href="/[user]" as={`/${commit.author.login}`}>
-          <a className="font-weight-bold">{commit.author.login}</a>
-        </Link>
+        {commit.author && (
+          <Link href="/[user]" as={`/${commit.author.login}`}>
+            <a className="font-weight-bold">{commit.author.login}</a>
+          </Link>
+        )}
         {` commited on `}
         <DateMonth ISOdate={commit.commit.committer.date} />
       </small>
       <br />
-      {/* <span>{JSON.stringify(commit, null, 2)}</span> */}
     </div>
   );
 };

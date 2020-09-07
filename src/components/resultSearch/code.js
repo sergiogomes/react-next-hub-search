@@ -61,8 +61,6 @@ const Code = (props) => {
       <div className="ml-5">
         <small className="text-muted">{getLanguageDesc(code.name)}</small>
       </div>
-      {/* <br />
-      <span>{JSON.stringify(code, null, 2)}</span> */}
     </div>
   );
 };

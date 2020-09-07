@@ -1,8 +1,4 @@
-import Link from "next/link";
-
 import DateMonth from "../date/date";
-
-// The user's search API has very little information...
 
 const Topic = (props) => {
   const { topic } = props;
@@ -15,8 +11,6 @@ const Topic = (props) => {
         {` created on `}
         <DateMonth ISOdate={topic.created_at} />
       </small>
-      {/* <br />
-      <span>{JSON.stringify(topic, null, 2)}</span> */}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import EventsList from "../components/events/eventsList";
 import Error from "../components/error/error";
 
-import { getUser, getEvents } from "../actions";
+import { getUser, getEvents } from "../../actions";
 
 class Home extends React.Component {
   constructor(props) {

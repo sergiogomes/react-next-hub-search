@@ -10,6 +10,10 @@ class NavBar extends React.Component {
     text: "",
   };
 
+  componentDidMount() {
+    this.searchInput.focus();
+  }
+
   render() {
     const { onSearch } = this.props;
     const { text } = this.state;
@@ -39,6 +43,9 @@ class NavBar extends React.Component {
                 event.preventDefault();
                 onSearch(event.target.value);
               }
+            }}
+            ref={(input) => {
+              this.searchInput = input;
             }}
           />
           <button

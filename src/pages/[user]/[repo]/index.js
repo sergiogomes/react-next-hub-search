@@ -7,7 +7,7 @@ import Error from "../../../components/error/error";
 import {
   getUserRepository,
   getUserRepositoryCommits,
-} from "../../../actions/index";
+} from "../../../../actions";
 
 const Repositoy = (props) => {
   const { repo, commits } = props;

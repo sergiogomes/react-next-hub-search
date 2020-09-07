@@ -45,8 +45,6 @@ const Issue = (props) => {
         </span>
         <span className="ml-4">{` status: ${issue.state}`}</span>
       </small>
-      {/* <br />
-      <span>{JSON.stringify(issue, null, 2)}</span> */}
     </div>
   );
 };
