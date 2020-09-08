@@ -2,21 +2,13 @@ import React from "react";
 
 import packageJson from "../../package.json";
 import Commit from "../components/resultSearch/commit";
-import Pagination from "../components/pagination/pagination";
 
 import { getUserRepositoryCommits } from "../../actions";
-
-const ph_obj = {
-  id: 0,
-  results: 0,
-  items: [],
-  title: "",
-  single: "",
-};
 
 class About extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "sergiopgomes92@gmail.com",
       subject: "NextHub",
@@ -44,10 +36,6 @@ class About extends React.Component {
       (res) => {
         this.setState({
           commits: res,
-          pagination: {
-            title: "Commits",
-            results: res.length < 30 ? res.length : 100,
-          },
         });
       }
     );
@@ -60,19 +48,6 @@ class About extends React.Component {
       });
     }
   }
-
-  handleChangePage = (text, page, type) => {
-    this.setState({
-      page: page,
-    });
-    getUserRepositoryCommits("sergiogomes", "react-next-hub-search", page).then(
-      (res) => {
-        this.setState({
-          commits: res,
-        });
-      }
-    );
-  };
 
   render() {
     return (
@@ -92,6 +67,7 @@ class About extends React.Component {
               ))}
             </div>
           </section>
+
           <p className="lead c-dark">
             An web app that re-implements a portion of GitHub's Search feature,
             the user search, using their public API.
@@ -102,6 +78,7 @@ class About extends React.Component {
             src="https://wakatime.com/badge/github/sergiogomes/react-next-hub-search.svg"
             className="mt-1 mb-3"
           />
+
           <address>
             <p className="font-italic">
               Reach me on:
@@ -115,7 +92,7 @@ class About extends React.Component {
           </address>
         </div>
 
-        {this.state.commits.length && (
+        {this.state.commits.length > 0 && (
           <div className="py-3">
             <h4>Changelog</h4>
             <div className="text-muted">
@@ -123,25 +100,20 @@ class About extends React.Component {
             </div>
           </div>
         )}
+
         <div className="list-group list-group-flush">
-          {this.state.commits.length &&
+          {this.state.commits.length > 0 &&
             this.state.commits.map((commit) => (
               <Commit key={commit.sha} commit={commit} />
             ))}
         </div>
 
-        {this.state.pagination.results > 30 && (
-          <Pagination
-            text="Commits"
-            page={this.state.page}
-            options={this.state.pagination || ph_obj}
-            changePage={this.handleChangePage}
-          />
-        )}
-        {this.state.pagination === 100 && (
-          <small className="alert alert-warning mt-2" role="alert">
-            Commits endpoint don't have total count.
-          </small>
+        {this.state.commits.length > 0 && (
+          <div className="mt-3 w-100 text-center">
+            <small className="alert alert-warning" role="alert">
+              Displaying latest 30 commits.
+            </small>
+          </div>
         )}
       </div>
     );
