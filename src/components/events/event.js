@@ -56,7 +56,7 @@ class Event extends React.Component {
           <span>{` ${this.renderDescription(event)}`}</span>
           <span>
             <Link href="/[user]/[repo]" as={event.repo.name}>
-              <a className="font-weight-bold">{` ${event.repo.name}`}</a>
+              <a className="font-weight-bold text-break">{` ${event.repo.name}`}</a>
             </Link>
           </span>
           <span className="text-muted">
