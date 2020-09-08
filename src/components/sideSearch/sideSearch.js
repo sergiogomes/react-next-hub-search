@@ -1,5 +1,5 @@
 const SideSearch = (props) => {
-  const { options, text } = props;
+  const { options, text, page } = props;
 
   // Bootsrap list with badges
   return (
@@ -8,7 +8,7 @@ const SideSearch = (props) => {
         {options.map((item) => (
           <a
             key={item.id}
-            onClick={() => props.changeSideSearchOption(item, text)}
+            onClick={() => props.changeSideSearchOption(item, text, page)}
             href="#"
             className={`list-group-item list-group-item-action d-flex justify-content-between align-items-center 
             ${props.activeOption === item.title ? "responsive-border" : ""}
