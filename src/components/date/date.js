@@ -24,7 +24,10 @@ export default function DateMonth({ ISOdate }) {
     const date = new Date(ISOdate);
     const day = date.getUTCDate();
     const month = monthMap[date.getMonth()];
-    return <span>{`${day} ${month}`}</span>;
+    const year = date.getFullYear();
+    const currentYear = new Date().getFullYear();
+
+    return <span>{`${day} ${month} ${currentYear !== year ? year : ""}`}</span>;
   } catch (error) {
     return (
       <small className="alert alert-danger mt-2" role="alert">

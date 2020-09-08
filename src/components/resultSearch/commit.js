@@ -22,7 +22,7 @@ const Commit = (props) => {
             <a className="font-weight-bold">{commit.author.login}</a>
           </Link>
         )}
-        {` commited on `}
+        {` committed on `}
         <DateMonth ISOdate={commit.commit.committer.date} />
       </small>
       <br />

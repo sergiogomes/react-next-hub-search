@@ -10,7 +10,7 @@ describe("Date Component", () => {
   });
 
   const dateStr = "2020-09-04T22:12:17Z";
-  const dateTxt = "5 Sep";
+  const dateTxt = "4 Sep ";
 
   it("should render the correct date text converted", () => {
     const wrapper = mount(<DateMonth ISOdate={dateStr} />);
