@@ -120,9 +120,11 @@ class Search extends React.Component {
     };
   }
 
-  handleSideSearchOption = (option, text) => {
+  handleSideSearchOption = (option, text, page) => {
     this.setState({ filter: [option.title] });
-    Router.push(`/search?q=${text}&page=${1}&type=${option.title}`);
+    if (page !== 1) {
+      Router.push(`/search?q=${text}&page=${1}&type=${option.title}`);
+    }
   };
 
   filterResults = (options) => {
@@ -147,6 +149,7 @@ class Search extends React.Component {
             activeOption={this.state.filter[0]}
             options={optionsArray || []}
             text={text}
+            page={page}
           />
         </div>
         <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
