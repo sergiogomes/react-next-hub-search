@@ -47,7 +47,9 @@ class Event extends React.Component {
         <div className="media-body">
           <span className="mt-0 mb-1">
             <Link href="/[user]" as={`/${event.actor.login}`}>
-              <a className="font-weight-bold">{event.actor.display_login}</a>
+              <a className="font-weight-bold text-break">
+                {event.actor.display_login}
+              </a>
             </Link>
           </span>
           <span>{this.renderAction(event.payload.action)}</span>
