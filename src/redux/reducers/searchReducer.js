@@ -3,7 +3,7 @@ import { HYDRATE } from "next-redux-wrapper";
 import { CHANGE_SEARCH } from "../actions/searchActions";
 
 const initialState = {
-  text: "sergiogomes",
+  text: "",
 };
 
 const searchReducer = (state = initialState, action) => {
