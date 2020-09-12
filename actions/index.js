@@ -11,7 +11,37 @@ import {
 } from "./mockups/index";
 
 const BASE_URL = "https://api.github.com";
-const IS_DEV = false;
+const IS_DEV = true;
+
+export const getSearch = (type, text, page) => {
+  const promise = new Promise(() => {
+    switch (type) {
+      case "Repositories":
+        return getSearchRepositories(text, page);
+      case "Code":
+        return getSearchCodes(text, page);
+      case "Commits":
+        return getSearchCommits(text, page);
+      case "Issues":
+        return getSearchIssues(text, page);
+      case "Discussions":
+        return { total_count: 0, incomplete_results: false, items: [] };
+      case "Packages":
+        return { total_count: 0, incomplete_results: false, items: [] };
+      case "Marketplace":
+        return { total_count: 0, incomplete_results: false, items: [] };
+      case "Topics":
+        return getSearchTopics(text, page);
+      case "Wikis":
+        return { total_count: 0, incomplete_results: false, items: [] };
+      case "Users":
+        return getSearchUsers(text, page);
+      default:
+        return getSearchRepositories(text, page);
+    }
+  });
+  return promise;
+};
 
 /**
  * function to retrieve data from user
