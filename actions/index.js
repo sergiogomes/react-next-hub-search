@@ -112,7 +112,7 @@ export const getSearchCodes = (text, page = 1) => {
   } else {
     return axios
       .get(
-        `${BASE_URL}/search/code?q=${text}+in%3Afile+user%3A${text}&order=asc&page=${page}`,
+        `${BASE_URL}/search/code?q=${text}+in%3Afile+user%3Agithub&order=asc&page=${page}`,
         {
           headers: {
             Accept: "application/vnd.github.v3+json",
