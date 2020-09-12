@@ -1,5 +1,8 @@
 import React from "react";
 import Link from "next/link";
+import { connect } from "react-redux";
+
+import { changeSearch } from "../../redux/actions/searchActions";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -11,11 +14,20 @@ class NavBar extends React.Component {
   };
 
   componentDidMount() {
+    this.setState({
+      text: this.props.text,
+    });
     this.searchInput.focus();
   }
 
+  handleOnChange(text) {
+    // App.js function
+    this.props.onSearch(text);
+    // Redux dispatch
+    this.props.onChangeSearch(text);
+  }
+
   render() {
-    const { onSearch } = this.props;
     const { text } = this.state;
 
     return (
@@ -41,7 +53,7 @@ class NavBar extends React.Component {
             onKeyPress={(event) => {
               if (event.key === "Enter") {
                 event.preventDefault();
-                onSearch(event.target.value);
+                this.handleOnChange(event.target.value);
               }
             }}
             ref={(input) => {
@@ -53,7 +65,7 @@ class NavBar extends React.Component {
             type="role"
             onClick={(event) => {
               event.preventDefault();
-              onSearch(this.state.text);
+              this.handleOnChange(this.state.text);
             }}
           >
             Search
@@ -64,4 +76,12 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => ({
+  text: state.search.text,
+});
+
+const mapDispatchToProps = {
+  onChangeSearch: changeSearch,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
