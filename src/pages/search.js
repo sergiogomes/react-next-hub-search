@@ -141,7 +141,12 @@ class Search extends React.Component {
   };
 
   render() {
-    const { optionsArray, text, currentPage } = this.props;
+    const { optionsArray, text, currentPage, searchedText } = this.props;
+
+    // User searched a different text
+    if (searchedText && searchedText !== text) {
+      this.getData("All", searchedText, 1);
+    }
 
     return (
       <div className="row">
@@ -180,6 +185,7 @@ const mapStateToProps = (state) => ({
   filter: state.filter.title,
   optionsArray: state.results.data,
   currentPage: state.pagination.currentPage,
+  searchedText: state.search.text,
 });
 
 const mapDispatchToProps = {
