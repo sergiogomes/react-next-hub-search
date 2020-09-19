@@ -42,6 +42,31 @@ a {
   border-top-width: 1;
 }
 
+.pagination > li > a {
+  background-color: white;
+  color: #343a40;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  background-color: #eee;
+  border-color: #ddd;
+  color: #5a5a5a;
+}
+
+.pagination > .active > a {
+  background-color: #343a40 !important;
+  border: solid 1px #343a40 !important;
+  color: white;
+}
+
+.pagination > .active > a:hover {
+  background-color: #343a40 !important;
+  border: solid 1px #343a40;
+}
+
 .responsive-border {
   border-bottom-color: #f9826c;
   border-bottom-width: 2px;
