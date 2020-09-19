@@ -1,3 +1,5 @@
+import styles from "./pagination.module.css";
+
 const Pagination = (props) => {
   const { options, text, page } = props;
   const data = options;
@@ -6,7 +8,7 @@ const Pagination = (props) => {
 
   // Bootsrap pagination
   return (
-    <nav aria-label="Page navigation example">
+    <nav aria-label="Page navigation example" className={styles.navigation}>
       <ul className="pagination justify-content-center">
         {pag > 2 && (
           <li className="page-item">

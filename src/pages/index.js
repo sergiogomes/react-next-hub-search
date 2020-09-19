@@ -5,11 +5,11 @@ import styles from "../styles/Home.module.css";
 import EventsList from "../components/events/eventsList";
 import Error from "../components/error/error";
 
-import { getUser, getEvents } from "../../actions";
+import { getUser, getEvents } from "../../axios";
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   // Wait for the user on the server side before renders on browser

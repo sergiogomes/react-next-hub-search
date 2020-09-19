@@ -1,9 +1,8 @@
 import Link from "next/link";
 
 /**
- * Returns a 3 leter month based on month code
- * @param {number} month
- * @returns string
+ * returns file extension
+ * @param {string} file
  */
 const getLanguageDesc = (file) => {
   let color = "";

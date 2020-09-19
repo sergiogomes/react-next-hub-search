@@ -17,7 +17,7 @@ import {
   getSearchIssues,
   getSearchTopics,
   getSearchRepositories,
-} from "../../actions";
+} from "../../axios";
 
 const ph_obj = {
   id: 0,
@@ -41,8 +41,8 @@ const optionsMap = {
 };
 
 class Search extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   static getInitialProps({ query }) {
@@ -51,7 +51,7 @@ class Search extends React.Component {
     return { text, page, type };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     if (this.props.page !== this.props.currentPage) {
       this.props.onChangePage(this.props.page);
     }
@@ -64,33 +64,39 @@ class Search extends React.Component {
     page = this.props.page
   ) {
     if (type === "Repositories" || type === "All") {
-      const repositoriesData = await getSearchRepositories(text, page);
-      this.props.onChangeResults("Repositories", repositoriesData, page);
+      getSearchRepositories(text, page).then((resp) => {
+        this.props.onChangeResults("Repositories", resp, page);
+      });
     }
 
     if (type === "Code" || type === "All") {
-      const codesData = await getSearchCodes(text, page);
-      this.props.onChangeResults("Code", codesData, page);
+      getSearchCodes(text, page).then((resp) => {
+        this.props.onChangeResults("Code", resp, page);
+      });
     }
 
     if (type === "Commits" || type === "All") {
-      const commitsData = await getSearchCommits(text, page);
-      this.props.onChangeResults("Commits", commitsData, page);
+      getSearchCommits(text, page).then((resp) => {
+        this.props.onChangeResults("Commits", resp, page);
+      });
     }
 
     if (type === "Issues" || type === "All") {
-      const issuesData = await getSearchIssues(text, page);
-      this.props.onChangeResults("Issues", issuesData, page);
+      getSearchIssues(text, page).then((resp) => {
+        this.props.onChangeResults("Issues", resp, page);
+      });
     }
 
     if (type === "Topics" || type === "All") {
-      const topicsData = await getSearchTopics(text, page);
-      this.props.onChangeResults("Topics", topicsData, page);
+      getSearchTopics(text, page).then((resp) => {
+        this.props.onChangeResults("Topics", resp, page);
+      });
     }
 
     if (type === "Users" || type === "All") {
-      const usersData = await getSearchUsers(text, page);
-      this.props.onChangeResults("Users", usersData, page);
+      getSearchUsers(text, page).then((resp) => {
+        this.props.onChangeResults("Users", resp, page);
+      });
     }
 
     if (type === "All" || optionsMap[type]) {
@@ -106,7 +112,7 @@ class Search extends React.Component {
     const dataFound = data.find((data) => data.title === option.title);
 
     page = parseInt(page);
-    if (page !== dataFound.page || dataFound.results == 0) {
+    if (dataFound.results === 0) {
       this.getData(option.title, text, dataFound.page);
     }
 
@@ -160,22 +166,22 @@ class Search extends React.Component {
             page={currentPage}
           />
         </div>
-        <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+        <div className="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 d-relative">
           <ResultSearch
             text={text}
             page={currentPage}
             options={this.filterResults(optionsArray) || ph_obj}
           />
-          {this.filterResults(optionsArray)[0] &&
-            this.filterResults(optionsArray)[0].results > 30 && (
-              <Pagination
-                text={text}
-                page={currentPage}
-                options={this.filterResults(optionsArray)[0] || ph_obj}
-                changePage={this.handleChangePage}
-              />
-            )}
         </div>
+        {this.filterResults(optionsArray)[0] &&
+          this.filterResults(optionsArray)[0].results > 30 && (
+            <Pagination
+              text={text}
+              page={currentPage}
+              options={this.filterResults(optionsArray)[0] || ph_obj}
+              changePage={this.handleChangePage}
+            />
+          )}
       </div>
     );
   }

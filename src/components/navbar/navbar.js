@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { changeSearch } from "../../redux/actions/searchActions";
 
 class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
   }
 
   state = {

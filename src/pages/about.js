@@ -3,11 +3,11 @@ import React from "react";
 import packageJson from "../../package.json";
 import Commit from "../components/resultSearch/commit";
 
-import { getUserRepositoryCommits } from "../../actions";
+import { getUserRepositoryCommits } from "../../axios";
 
 class About extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       email: "sergiopgomes92@gmail.com",

@@ -4,7 +4,7 @@ import DateMonth from "../../components/date/date";
 import Repository from "../../components/resultSearch/respository";
 import Error from "../../components/error/error";
 
-import { getUser, getUserRepos } from "../../../actions";
+import { getUser, getUserRepos } from "../../../axios";
 
 const User = (props) => {
   const { user, repos } = props;

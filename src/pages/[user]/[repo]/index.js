@@ -4,10 +4,7 @@ import DateMonth from "../../../components/date/date";
 import Commit from "../../../components/resultSearch/commit";
 import Error from "../../../components/error/error";
 
-import {
-  getUserRepository,
-  getUserRepositoryCommits,
-} from "../../../../actions";
+import { getUserRepository, getUserRepositoryCommits } from "../../../../axios";
 
 const Repositoy = (props) => {
   const { repo, commits } = props;

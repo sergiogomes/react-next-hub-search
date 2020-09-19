@@ -45,7 +45,7 @@ class MyApp extends React.Component {
         </Head>
         <NavBar onSearch={this.handleOnSearch} />
         <div className="responsive-spacer" />
-        <div className="container-fluid py-5 mt-3">
+        <div className="container-fluid pt-5 pb-1 mt-3">
           <Component {...pageProps} />
         </div>
         <Footer />
